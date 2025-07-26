@@ -24,7 +24,7 @@ class GuestResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return config('module.guests.enable');
+        return config('module.guests.enable', true);
     }
 
     public static function getLabel(): ?string
