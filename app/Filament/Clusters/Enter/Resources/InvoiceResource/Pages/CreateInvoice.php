@@ -7,7 +7,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateInvoice extends CreateRecord
 {
-    protected ?string $heading = 'Créer une Nouvelle Facture';
+    //protected ?string $heading = 'Créer une Nouvelle Facture';
 
     protected static string $resource = InvoiceResource::class;
 
