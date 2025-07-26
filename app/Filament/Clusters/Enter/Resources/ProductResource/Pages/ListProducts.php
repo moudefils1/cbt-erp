@@ -20,12 +20,12 @@ class ListProducts extends ListRecords
         ];
     }
 
-    /*protected function getHeaderWidgets(): array
+    protected function getHeaderWidgets(): array
     {
         return [
             ProductResource\Widgets\ProductsOverview::make(),
         ];
-    }*/
+    }
 
     public function getTabs(): array
     {
