@@ -84,6 +84,7 @@ class ManageApp extends SettingsPage
                             ]),
 
                         Tabs\Tab::make('Horaires de Travail')
+                            ->hidden()
                             ->schema([
                                 Section::make('Configuration des Horaires de Travail')
                                     ->columns(2)
