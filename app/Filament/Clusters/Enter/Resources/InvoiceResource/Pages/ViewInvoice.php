@@ -10,7 +10,7 @@ use Filament\Resources\Pages\ViewRecord;
 
 class ViewInvoice extends ViewRecord
 {
-    protected ?string $heading = 'Détails de la Facture';
+    protected ?string $heading = 'Détails de la Fourniture';
 
     protected static string $resource = InvoiceResource::class;
 
