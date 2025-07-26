@@ -13,9 +13,9 @@ class InvoicesRelationManager extends RelationManager
 {
     protected static string $relationship = 'invoices';
 
-    protected static ?string $title = 'Factures du Fournisseur';
+    protected static ?string $title = 'Fournitures';
 
-    protected static ?string $label = 'Factures du Fournisseur';
+    protected static ?string $label = 'Fourniture';
 
     public function form(Form $form): Form
     {
