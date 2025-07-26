@@ -29,12 +29,12 @@ class InvoiceResource extends Resource
 
     public static function getLabel(): ?string
     {
-        return 'Facture';
+        return 'Fourniture';
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Factures';
+        return 'Fournitures';
     }
 
     //    public static function getNavigationBadge(): ?string
