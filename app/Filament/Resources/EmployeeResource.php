@@ -89,7 +89,7 @@ class EmployeeResource extends Resource
                                 Forms\Components\Select::make('country_id')
                                     ->label('Pays')
                                     ->placeholder('Sélectionnez un pays')
-                                    ->relationship('country', 'name')
+                                    ->options(\App\Models\Country::pluck('name', 'id'))
                                     ->searchable()
                                     ->preload()
                                     ->validationMessages([

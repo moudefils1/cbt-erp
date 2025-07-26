@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CustomPermissionSeeder::class,
             InitSeeder::class,
             ShieldSeeder::class,
+            CountrySeeder::class,
         ]);
     }
 }

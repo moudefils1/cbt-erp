@@ -16,6 +16,7 @@ class ProductsRelationManager extends RelationManager
 
     protected static ?string $label = 'Produits Fournis';
     protected static ?string $title = 'Produits Fournis';
+    protected static ?string $icon = 'heroicon-o-list-bullet';
 
     public function form(Form $form): Form
     {

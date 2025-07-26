@@ -6,11 +6,17 @@ use App\Enums\PaymentMethodEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class InvoicePayment extends Model
+class InvoicePayment extends Model implements HasMedia
 {
     use HasFactory;
     use SoftDeletes;
+    use LogsActivity;
+    use InteractsWithMedia;
 
     protected $fillable = [
         'invoice_id',
@@ -30,6 +36,8 @@ class InvoicePayment extends Model
         'payment_date' => 'date',
     ];
 
+    protected static $logName = 'Paiement Facture';
+
     public function invoice()
     {
         return $this->belongsTo(Invoice::class);
@@ -48,5 +56,19 @@ class InvoicePayment extends Model
     public function deletedBy()
     {
         return $this->belongsTo(User::class, 'deleted_by');
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logAll()
+            ->logOnlyDirty()
+            ->useLogName(static::$logName);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('payment_receipt')
+            ->singleFile();
     }
 }

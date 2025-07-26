@@ -15,8 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class PaymentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'payments';
-
+    protected static ?string $label = 'Paiement';
     protected static ?string $title = 'Paiements';
+    protected static ?string $icon = 'heroicon-o-credit-card';
 
     /**
      * @return string|null
@@ -47,7 +48,7 @@ class PaymentsRelationManager extends RelationManager
                             ->formatStateUsing(fn ($state) => number_format($state, 2) . ' XAF')
                             ->disabled(),
                     ]),
-                ])
+            ])
             ->schema([
                 Forms\Components\TextInput::make('amount')
                     ->label('Montant')
@@ -84,6 +85,16 @@ class PaymentsRelationManager extends RelationManager
                     ->validationMessages([
                         'required' => 'La date de paiement est requise.',
                     ]),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('payment_file')
+                    ->label('Fiche de Paiement')
+                    ->collection('payment_files')
+                    ->visibility('public')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->maxSize(1024 * 5) // 5 MB
+                    ->openable()
+                    ->downloadable()
+                    ->helperText('Téléchargez une image ou un PDF du paiement.')
+                    ->columnSpanFull(),
                 Forms\Components\Textarea::make('notes')
                     ->label('Notes')
                     ->maxLength(500)

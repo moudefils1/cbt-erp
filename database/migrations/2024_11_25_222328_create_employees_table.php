@@ -21,7 +21,7 @@ return new class extends Migration
             $table->bigInteger('phone')->nullable();
             $table->string('email', 50)->nullable();
             $table->integer('gender')->nullable();
-            $table->string('nationality')->nullable();
+            $table->tinyText('country_id')->nullable();
             $table->string('birth_place')->nullable();
             $table->date('birth_date')->nullable();
             $table->integer('marital_status')->nullable();
@@ -39,9 +39,9 @@ return new class extends Migration
                 ->constrained('grades')
                 ->onDelete('restrict');
             $table->tinyInteger('employee_type_id');
-            $table->tinyInteger('grid_category_id');
-            $table->tinyInteger('echelon_id');
-            $table->decimal('basic_salary', 10, 2);
+            $table->tinyInteger('grid_category_id')->nullable();
+            $table->tinyInteger('echelon_id')->nullable();
+            $table->decimal('basic_salary', 10, 2)->nullable();
             $table->date('hiring_date')->nullable();
             $table->date('end_date')->nullable();
             $table->tinyInteger('status')->default(1);
