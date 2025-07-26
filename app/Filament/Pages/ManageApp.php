@@ -58,6 +58,8 @@ class ManageApp extends SettingsPage
                                             ->maxLength(1000),
                                         FileUpload::make('logo')
                                             ->image()
+                                            ->openable()
+                                            ->downloadable()
                                             ->directory('site')
                                             ->visibility('public'),
                                     ]),
